@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/all.min.css">
+</head>
+
+<body>
+  <nav>
+    <a href="#" class="title">
+      <i><b>Online Shopping</b></i>
+    </a>
+    <h2 class="welcome">WELCOME <span class="username"></span></h2>
+    <div class="account">
+      <div>
+        <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="./cart.html">Cart</a>
+        <i class="fa-solid fa-caret-down"></i>
+      </div>
+      <div class="dropmenu displaynone">
+        <div class="dropmenu-list">
+        </div>
+        <a href="./cart.html">View all products</a>
+      </div>
+      <a id="logout" href="./index.html">Logout</a>
+    </div>
+    <div class="access">
+      <a href="./login.html"><b>Login</b></a>
+      <a href="./register.html"><b>Register</b></a>
+    </div>
+  </nav>
+  <main>
+    <section class="search">
+      <select name="" id="category">
+        <option value="name">Search by Name</option>
+        <option value="category">Serach by Category</option>
+      </select>
+      <input id="searchinput" type="text" placeholder="Search">
+    </section>
+    <hr>
+    <section class="items">
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      color: black;
+    }
+
+    .fig2 img {
+      width: 100%;
+      max-width: 200px;
+      max-height: 200px;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .fig2 {
+      border: 1px solid rgb(224, 224, 224);
+      border-radius: 30px;
+      display: flex;
+      min-height: 300px;
+      max-height: 350px;
+      padding: 30px;
+      justify-content: space-between;
+      flex-direction: column;
+      gap: 20px;
+      background-color: rgb(228, 228, 228);
+    }
+
+    .fig2 figcaption {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      font-weight: bold;
+    }
+
+    .fig2 i {
+      color: red;
+      cursor: pointer;
+    }
+
+    .favourite {
+      font-size: 25px;
+      display: block;
+      width: fit-content;
+      margin: auto;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .favourite::after {
+      content: "";
+      left: 0;
+      bottom: -5px;
+      position: absolute;
+      width: 80%;
+      left: 10%;
+      height: 2px;
+      background-color: red;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background-color: rgb(194, 194, 194);
+      margin-bottom: 50px;
+    }
+
+    .totalprice-con {
+      margin: 50px auto;
+      width: fit-content;
+      font-size: 1.5rem;
+
+    }
+
+    .swiper {
+      width: 100%;
+      max-width: 1300px;
+      height: 350px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 30px;
+      background-color: rgb(223, 223, 223);
+    }
+
+    nav * {
+      color: #0075ff;
+    }
+
+    .zero {
+      color: #0075ff;
+    }
+
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 100%;
+      max-width: 1300px;
+      margin: auto;
+      margin-top: 30px;
+    }
+
+    .fig1 {
+      width: calc(50% - 5px);
+      border: 1px solid rgb(206, 206, 206);
+      border-radius: 3px;
+      display: flex;
+      padding: 20px;
+      background-color: rgb(228, 228, 228);
+    }
+
+    .fig1>div {
+      width: 50%;
+    }
+
+    .fig1 img {
+      background-color: rgb(228, 228, 233);
+      width: 100%;
+      max-width: 200px;
+      height: 100%;
+      margin: auto;
+      display: block;
+    }
+
+    .fig1 figcaption {
+      font-weight: 600;
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .fig1 figcaption div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fig1 figcaption div div {
+      display: flex;
+      gap: 20px;
+      font-size: 1.3rem;
+    }
+
+    .fig1 figcaption div i {
+      color: rgb(206, 206, 206);
+      cursor: pointer;
+    }
+
+    .fig1 figcaption div button {
+      cursor: pointer;
+      background-color: red;
+      color: white;
+      padding: 10px 13px;
+      width: -moz-fit-content;
+      width: fit-content;
+      border: none;
+      margin-left: 20px;
+      border-radius: 4px;
+    }
+
+    .fa-plus {
+      color: green !important;
+    }
+
+    .fa-minus {
+      color: red !important;
+    }
+  </style>
+  <link rel="stylesheet" href="./css/all.min.css">
+</head>
+
+<body>
+  <nav>
+    <a href="./index.html" class="title">
+      <i><b>Online Shopping</b></i>
+    </a>
+    <a href="./index.html">Logout</a>
+  </nav>
+  <main>
+    <section>
+      <div class="items">
+      </div>
+      <p class="totalprice-con">Total price: <span class="totalprice"><i>Add items first!</i></span></p>
+    </section>
+    <hr>
+    <section>
+      <div class="favourite">Favourite</div>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      slidesPerView: 3,
+      spaceBetween: 10,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+    let products = [
+      {
+        id: 1,
+        name: "adidas shirt",
+        price: 80,
+        category: "fashion",
+        img: "./images/shirt.png",
+      },
+      {
+        id: 2,
+        name: "earpods",
+        price: 150,
+        category: "phone accessories",
+        img: "./images/airpods.png",
+      },
+      {
+        id: 3,
+        name: "jacket",
+        price: 120,
+        category: "fashion",
+        img: "./images/jacket.png",
+      },
+      {
+        id: 4,
+        name: "adidas bottle",
+        price: 50,
+        category: "sport",
+        img: "./images/bottle.png",
+      },
+      {
+        id: 5,
+        name: "glasses",
+        price: 80,
+        category: "men accessories",
+        img: "./images/glasses.png",
+      },
+      {
+        id: 6,
+        name: "cap",
+        price: 120,
+        category: "men accessories",
+        img: "./images/cap.png",
+      },
+      {
+        id: 7,
+        name: "adidas bag",
+        price: 110,
+        category: "bags",
+        img: "./images/bag.png",
+      },
+      {
+        id: 8,
+        name: "adidas shoes",
+        price: 80,
+        category: "sport",
+        img: "./images/shoes.png",
+      },
+      {
+        id: 9,
+        name: "bag",
+        price: 100,
+        category: "fashion",
+        img: "./images/femalebag.png",
+      },
+    ]
+    function sel(e) {
+      return document.querySelector(e)
+    }
+    let cart = JSON.parse(localStorage.getItem("cart")) || []
+    function calcTotal() {
+      let total = 0
+      cart = JSON.parse(localStorage.getItem("cart"))
+      cart.forEach(e => {
+        total += (e.amount * e.price)
+      })
+      sel(".totalprice").innerHTML = total
+    }
+    for (let i = 0; i < products.length; i++) {
+      for (let x = 0; x < cart.length; x++) {
+        if (products[i].id == cart[x].id) {
+          sel(".items").innerHTML += `
+          <figure class="fig1 fig-${cart[x].id}">
+            <div>
+              <img src=${products[i].img} alt="">
+            </div>
+            <figcaption>
+              <p class="product">Product: <span>${products[i].name}</span></p>
+              <p class="price">Price: <span>${products[i].price}</span></p>
+              <p class="category">Category: <span>${products[i].category}</span></p>
+              <div>
+                <div>
+                  <span class="item-${cart[x].id}">${cart[x].amount}</span>
+                  <i id="${cart[x].id}" class="fa-solid fa-plus addamount"></i>
+                  <i id="${cart[x].id}" class="fa-solid fa-minus minamount"></i>
+                </div>
+                <button id="${cart[x].id}" class="removeitem">Remove</button>
+              </div>
+            </figcaption>
+          </figure>
+          `
+        }
+      }
+    }
+    if (cart.length > 0) {
+      calcTotal()
+      document.querySelectorAll(".addamount").forEach(e => {
+        e.onclick = (event) => {
+          cart.forEach(e2 => {
+            if (e.id == e2.id) {
+              e2.amount += 1
+              sel(`.item-${e.id}`).innerHTML = e2.amount
+              localStorage.setItem("cart", JSON.stringify(cart))
+              calcTotal()
+            }
+          })
+        }
+      })
+
+      document.querySelectorAll(".minamount").forEach(e => {
+        e.onclick = (event) => {
+          cart.forEach(e2 => {
+            if (e.id == e2.id) {
+              if (e2.amount == 1) {
+                sel(`.fig-${e2.id}`).remove()
+                let newcart = cart.filter(ell => ell.id != e2.id)
+                localStorage.setItem("cart", JSON.stringify(newcart))
+                calcTotal()
+                return;
+              } else {
+                e2.amount--
+              }
+              sel(`.item-${e.id}`).innerHTML = e2.amount
+              localStorage.setItem("cart", JSON.stringify(cart))
+              calcTotal()
+            }
+          })
+        }
+      })
+
+      document.querySelectorAll(".removeitem").forEach(e => {
+        e.onclick = (event) => {
+          cart.forEach(e2 => {
+            if (e.id == e2.id) {
+              cart = JSON.parse(localStorage.getItem("cart"))
+              let newcart = cart.filter(ell => ell.id != e2.id)
+              sel(`.fig-${e2.id}`).remove()
+              localStorage.setItem("cart", JSON.stringify(newcart))
+              calcTotal()
+            }
+          })
+        }
+      })
+    }
+    let favourites = JSON.parse(localStorage.getItem("favourites")) || []
+    if (favourites.length > 0) {
+      let newfavs = favourites.map(e => `
+          <div class="swiper-slide">
+            <figure class="fig2">
+              <div>
+                <img src=${e.img} alt="">
+              </div>
+              <figcaption>
+                <div>
+                  <p class="product">Product: <span>${e.name}</span></p>
+                  <p class="category">Category: <span>${e.category}</span></p>
+                </div>
+                <div>
+                  <i id=${e.id} class="fa-solid fa-heart addfavourite"></i>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+      `)
+      sel(".swiper-wrapper").innerHTML = newfavs.join("");
+    }
+    document.querySelectorAll(".addfavourite").forEach(e => e.onclick = () => {
+      e.classList.remove("fav")
+      console.log("hi")
+      favourites = JSON.parse(localStorage.getItem("favourites")) || []
+      let newfavs = favourites.filter(e2 => e2.id != e.getAttribute("id"))
+      localStorage.setItem("favourites", JSON.stringify(newfavs))
+      let newele = newfavs.map(e => `
+          <div class="swiper-slide">
+            <figure class="fig2">
+              <div>
+                <img src=${e.img} alt="">
+              </div>
+              <figcaption>
+                <div>
+                  <p class="product">Product: <span>${e.name}</span></p>
+                  <p class="category">Category: <span>${e.category}</span></p>
+                </div>
+                <div>
+                  <i id=${e.id} class="fa-solid fa-heart addfavourite"></i>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+      `)
+      sel(".swiper-wrapper").innerHTML = newele.join("");
+      swiper = new Swiper('.swiper', {
+        direction: 'horizontal',
+        slidesPerView: 3,
+        spaceBetween: 10,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      });
+    })
+    swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      slidesPerView: 3,
+      spaceBetween: 10,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+</body>
+
+</html>
