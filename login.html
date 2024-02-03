@@ -85,7 +85,7 @@
           users[i].email == sel("#loginmail").value &&
           users[i].password == sel("#loginpass").value
         ) {
-          window.location = "https://yousef7722.github.io/8_12/index.html"
+          window.location = `${window.location.origin}/index.html`
           localStorage.setItem("user", JSON.stringify(users[i]))
           return;
         }else if(users.length -1 == i){

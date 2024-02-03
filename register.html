@@ -82,6 +82,8 @@
     function sel(e) {
       return document.querySelector(e)
     }
+    console.log(window.location)
+    console.log(location)
     sel(".register").onclick = (e) => {
       e.preventDefault()
       if (sel("#firstname").value != "" &&
@@ -101,7 +103,7 @@
           }
         ]
         localStorage.setItem("users", JSON.stringify(users))
-        window.location ="https://yousef7722.github.io/8_12/login.html"
+        window.location =`${window.location.origin}/login.html`
       }
     }
   </script>
